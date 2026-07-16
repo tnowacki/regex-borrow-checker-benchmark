@@ -104,14 +104,16 @@ fn main() -> anyhow::Result<()> {
 
     let mut old_ns: Vec<u64> = Vec::with_capacity(results.len());
     let mut new_ns: Vec<u64> = Vec::with_capacity(results.len());
-    let mut mismatches = 0usize;
     let mut old_failures = 0usize;
-    let mut new_failures = 0usize;
+    let mut new_failure_reported = false;
     for &(o, n, old_ok, new_ok) in &results {
         if !new_ok {
-            eprintln!(
-                "INTERNAL ERROR: regex-based analysis should accept every function in the corpus"
-            );
+            if !new_failure_reported {
+                eprintln!(
+                    "INTERNAL ERROR: regex-based analysis should accept every function in the corpus"
+                );
+                new_failure_reported = true;
+            }
             continue;
         }
         if !old_ok {

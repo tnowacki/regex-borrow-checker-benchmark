@@ -17,7 +17,7 @@ Both run back-to-back on the same thread per function. Timing uses nanosecond re
 
 - A recent stable Rust toolchain (edition 2024, i.e. Rust >= 1.85). Install via https://rustup.rs. The script does not install anything for you.
 - Network access on first build (to fetch the pinned Sui crates) and to download the dataset.
-  - NOTE: The `sui-packages` dataset is large and will require  Disk space for the `sui-packages` dataset (roughly ~16 GB as of 15 July 2026).
+  - NOTE: the `sui-packages` dataset is large. It takes roughly 13-16 GB (a shallow clone, which the script does, needs ~13 GB; a full clone ~16 GB) 15 July 2026.
 
 ## Run
 
@@ -44,4 +44,4 @@ cargo build --release --manifest-path reference-safety-bench/Cargo.toml
 
 `packages/mainnet_most_used/` entries are symlinks into `packages/mainnet/`.
 
-The corpus contains only packages the deployed bytecode verifier accepts, which includes the deployed (grpah-based) approach. The regex-based approach is strictly more expressive. As such, both analyses should accept every function.
+The corpus contains only packages the deployed bytecode verifier accepts, which includes the deployed (graph-based) approach. The regex-based approach is strictly more expressive. As such, both analyses should accept every function.
