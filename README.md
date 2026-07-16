@@ -1,4 +1,4 @@
-# Borrow-checker performance artifact
+# Borrow-checker performance benchmark
 
 Reproduces the wall-time performance of the new regex-based reference-safety checker vs the deployed (graph-based) approach.
 
@@ -17,7 +17,7 @@ Both run back-to-back on the same thread per function. Timing uses nanosecond re
 
 - A recent stable Rust toolchain (edition 2024, i.e. Rust >= 1.85). Install via https://rustup.rs. The script does not install anything for you.
 - Network access on first build (to fetch the pinned Sui crates) and to download the dataset.
-  - NOTE: the `sui-packages` dataset is large. It takes roughly 13-16 GB (a shallow clone, which the script does, needs ~13 GB; a full clone ~16 GB) 15 July 2026.
+  - NOTE: the `sui-packages` dataset is large. It takes roughly 13-16 GB (a shallow clone, which the script does, needs ~13 GB; a full clone ~16 GB), as of 15 July 2026.
 
 ## Run
 
