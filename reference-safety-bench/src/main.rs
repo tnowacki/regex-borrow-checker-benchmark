@@ -149,15 +149,15 @@ fn print_report(
         println!("{:<14}{:>18.3}{:>18.3}", label, a, b);
     };
     println!("{:<14}{:>18}{:>18}", "count", old.count, new.count);
-    row("mean (us)", old.mean_us, new.mean_us);
-    row("median (us)", old.median_us, new.median_us);
-    row("p90 (us)", old.p90_us, new.p90_us);
-    row("p95 (us)", old.p95_us, new.p95_us);
-    row("p99 (us)", old.p99_us, new.p99_us);
-    row("min (us)", old.min_us, new.min_us);
-    row("max (us)", old.max_us, new.max_us);
-    row("stddev (us)", old.stddev_us, new.stddev_us);
-    row("total (us)", old.total_us, new.total_us);
+    row("total (μs)", old.total_us, new.total_us);
+    row("p90 (μs)", old.p90_us, new.p90_us);
+    row("p95 (μs)", old.p95_us, new.p95_us);
+    row("p99 (μs)", old.p99_us, new.p99_us);
+    row("min (μs)", old.min_us, new.min_us);
+    row("max (μs)", old.max_us, new.max_us);
+    row("stddev (μs)", old.stddev_us, new.stddev_us);
+    row("median (μs)", old.median_us, new.median_us);
+    row("mean (μs)", old.mean_us, new.mean_us);
     println!();
 
     let ratio = if old.mean_us > 0.0 {
@@ -166,7 +166,7 @@ fn print_report(
         f64::NAN
     };
     println!("Ratio mean(new)/mean(old) = {:.2}x", ratio);
-    println!("Mean new (regex) per function = {:.1} us", new.mean_us);
+    println!("Mean new (regex) per function = {:.1} μs", new.mean_us);
     if old_failures > 0 {
         println!(
             "WARNING: {} functions failed the old (graph-based) analysis. This likely means that \

@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# Reproduce the borrow-checker performance numbers from the OOPSLA26 paper
-# section "Borrow Checker Implementation in Sui Blockchain":
-#   - regex checker ~2.2x slower than the deployed (graph) checker
-#   - mean verification time per function ~30 us
+# Reproduce the borrow-checker performance numbers comparing the regex-based
+# reference-safety checker against the deployed (graph-based) one.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
